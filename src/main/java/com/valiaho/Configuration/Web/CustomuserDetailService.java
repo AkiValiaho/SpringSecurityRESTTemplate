@@ -18,6 +18,13 @@ import java.util.ArrayList;
 public class CustomuserDetailService implements UserDetailsService {
      @Autowired
     PasswordEncoder passwordEncoder;
+
+    /**
+     * Loads UserdetailsObject if username is correct and found
+     * @param username
+     * @return
+     * @throws UsernameNotFoundException
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_USER");
