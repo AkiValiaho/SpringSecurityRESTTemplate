@@ -1,8 +1,10 @@
 package com.valiaho.Utils;
 
 import com.google.gson.Gson;
+import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.impl.DefaultClaims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -48,6 +50,13 @@ public class TokenHandler {
         final String s = gson.toJson(mapOfPayloads);
         final String compact = Jwts.builder().setPayload(s).signWith(SignatureAlgorithm.HS256, this.secret).compact();
         return compact;
+    }
+    public void verifyToken(String token) throws RuntimeException {
+        final Jwt parse = Jwts.parser().setSigningKey(this.secret).parse(token);
+        final Long exp = (Long) ((DefaultClaims) parse.getBody()).get("exp");
+        if (exp < System.currentTimeMillis()) {
+            throw new RuntimeException("Access token has expired");
+        }
     }
 
 }
