@@ -4,6 +4,9 @@ $(document).ready(function () {
   $("#messagesForErrors").hide();
   $("#kysymysPeli").hide();
 
+  var ircClient = (function () {
+    console.log("This is an irc client");
+  });
   var alreadySubmitted = false;
   $("#submitbutton").click(function (event) {
     event.preventDefault();
