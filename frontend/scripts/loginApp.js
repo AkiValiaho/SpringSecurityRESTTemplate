@@ -41,7 +41,7 @@ $(document).ready(function () {
       //Template ajax-query to connect JQuery with Spring using
       //JSON
       contentType: "application/json",
-      url: "http://localhost:8080/login",
+      url: "https://localhost:8443/login",
       data: JSON.stringify(jsonString),
       type: "POST",
       dataType: "html",
@@ -70,7 +70,7 @@ $(document).ready(function () {
       //Template ajax-query to connect JQuery with Spring using
       //JSON
       contentType: "application/json",
-      url: "http://localhost:8080/quizapp",
+      url: "https://localhost:8443/quizapp",
       type: "GET",
       dataType: "html",
       beforeSend: function (xhr) {

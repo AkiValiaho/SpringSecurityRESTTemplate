@@ -3,6 +3,6 @@ MAINTAINER Valiaho.Aki.V@student.uta.fi
 RUN apt-get update && apt-get install -y openssh-server apache2 supervisor
 RUN mkdir -p /var/lock/apache2 /var/run/apache2 /var/run/sshd /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-EXPOSE 22 80
+EXPOSE 22 80 8443 8080 443
 CMD ["/usr/bin/supervisord"]
 

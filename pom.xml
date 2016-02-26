@@ -24,7 +24,13 @@
     </properties>
 
     <dependencies>
-
+        <!--David Motens RxJava JDBC-implementation-->
+        <dependency>
+            <groupId>com.github.davidmoten</groupId>
+            <artifactId>rxjava-jdbc</artifactId>
+            <version>0.7</version>
+        </dependency>
+        <!--For handling JDBC-tokens-->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
