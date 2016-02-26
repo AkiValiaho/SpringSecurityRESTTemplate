@@ -5,8 +5,6 @@ import com.valiaho.Domain.LoginStatus;
 import com.valiaho.Service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +32,5 @@ public class LoginController {
                 loginDto.getUsername(), loginDto.getPassword());
         return loginService.attemptAuth(usernamePasswordAuthenticationToken, response, request);
     }
-
-
 }
 
