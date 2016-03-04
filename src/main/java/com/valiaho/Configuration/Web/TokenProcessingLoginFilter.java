@@ -32,7 +32,6 @@ public class TokenProcessingLoginFilter implements Filter {
             if (userFromToken != null) {
                 SecurityContextHolder.getContext().setAuthentication(userFromToken);
             }
-
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (SignatureException e) {

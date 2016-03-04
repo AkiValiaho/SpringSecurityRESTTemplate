@@ -31,8 +31,17 @@ public class CustomuserDetailService implements UserDetailsService {
         ArrayList<SimpleGrantedAuthority> grantedAuthorities = new ArrayList<>();
         grantedAuthorities.add(authority);
         User user = new User("user", passwordEncoder.encode("password"), grantedAuthorities);
+        User user1234 = new User("user1234", passwordEncoder.encode("password1234"), grantedAuthorities);
         if (username.equals("user")) {
+            //Palautetaan peruskäyttäjä takaisin
             return user;
+        }
+        if (username.equals("user1234")) {
+            //Palautetaan käyttäjä 1234
+            return user1234;
+        }
+        if (username.equals("basicuser4321")) {
+            return new User("basicuser4321", passwordEncoder.encode("basicuser4321"), grantedAuthorities);
         }
         return null;
     }
