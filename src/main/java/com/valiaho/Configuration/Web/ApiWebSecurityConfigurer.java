@@ -29,6 +29,8 @@ public class ApiWebSecurityConfigurer extends BaseWebSecurityConfigurationAdapte
                 .addFilterBefore(tokenProcessingLoginFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
+                .antMatchers(HttpMethod.GET, "/productRepository/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/productRepository/**").permitAll()
                 .antMatchers("/quizapp").hasRole("USER")
                 .anyRequest().authenticated().and()
                 .csrf().disable();

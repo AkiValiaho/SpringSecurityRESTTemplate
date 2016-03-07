@@ -56,6 +56,7 @@ $(document).ready(function () {
         } else {
           $("#messagesForErrors").show();
         }
+        console.log("")
         console.log("Its working");
       },
       error: function (xhr, textStatus, error) {
