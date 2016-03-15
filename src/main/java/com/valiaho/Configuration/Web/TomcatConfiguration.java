@@ -50,6 +50,7 @@ public class TomcatConfiguration {
     /**
      * Specifies the connector entity that can be used
      * with {@link TomcatEmbeddedServletContainerFactory}
+     * Used to redirect all http traffic to secure HTTPS-port.
      *
      * @return {@link Connector}
      */
