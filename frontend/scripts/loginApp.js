@@ -3,6 +3,13 @@ $(document).ready(function () {
   var tulo = null;
   $("#messagesForErrors").hide();
   $("#kysymysPeli").hide();
+  $("#loginForm").hide();
+  $("#loginForm").slideDown();
+  $(".dividerFunnyImage").slick({
+    infinite: true,
+    slidesToShow: 2,
+    slidesToScroll:2
+  });
 
   var ircClient = (function () {
     console.log("This is an irc client");
@@ -56,7 +63,7 @@ $(document).ready(function () {
         } else {
           $("#messagesForErrors").show();
         }
-        console.log("")
+        console.log("");
         console.log("Its working");
       },
       error: function (xhr, textStatus, error) {

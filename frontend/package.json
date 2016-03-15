@@ -1,0 +1,31 @@
+{
+  "name": "springtemplate",
+  "version": "1.0.0",
+  "description": "Spring REST Template with auto-building react frontend",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "npm install",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AkiValiaho/SpringSecurityRESTTemplate.git"
+  },
+  "keywords": [
+    "Aki",
+    "Valiaho"
+  ],
+  "author": "Aki Valiaho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AkiValiaho/SpringSecurityRESTTemplate/issues"
+  },
+  "homepage": "https://github.com/AkiValiaho/SpringSecurityRESTTemplate#readme",
+  "dependencies": {
+    "bower": "^1.7.7",
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.7",
+    "gulp-zip": "^3.2.0"
+  }
+}
