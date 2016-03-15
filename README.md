@@ -13,3 +13,5 @@ authentication.
 
 Backend is configured to redirect HTTP into HTTPS. Mappings are modular and can be changed in
 application.properties.
+
+Maven Clean Install triggers building for the frontend as well as Spring Boot.
