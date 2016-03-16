@@ -5,6 +5,9 @@ Useful template for developing RESTful applications with Spring and Spring Secur
 This project contains a Spring Security project using JWT Tokens as a way of
 providing persistence in stateless context of REST.
 
+There is an existing mapping for a typical Java EE-pattern. Controllers, services and domain objects
+are organised in separate packages.
+
 Database object relational mapping is handled by Hibernate.
 
 It has a configurable CORS-filter defined and a simple CustomUserDetails-implementation
