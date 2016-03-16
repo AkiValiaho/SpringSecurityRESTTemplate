@@ -15,3 +15,4 @@ Backend is configured to redirect HTTP into HTTPS. Mappings are modular and can 
 application.properties.
 
 Maven Clean Install triggers building for the frontend as well as Spring Boot.
+There is a Gulp process that moves frontend files to the target-folder under their own document root.
