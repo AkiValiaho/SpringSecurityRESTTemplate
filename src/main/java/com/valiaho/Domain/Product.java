@@ -1,17 +1,13 @@
 package com.valiaho.Domain;
 
-import javax.persistence.*;
+import com.couchbase.client.java.repository.annotation.Id;
 
 /**
  * Created by akivv on 7.3.2016.
  */
-@Entity
-@Table(name = "products")
 public class Product {
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
-    @Column(name = "productName", length = 500)
     private String name;
 
     public Long getId() {

@@ -51,6 +51,7 @@ public class TokenHandler {
         final String compact = Jwts.builder().setPayload(s).signWith(SignatureAlgorithm.HS256, this.secret).compact();
         return compact;
     }
+
     public void verifyToken(String token) throws RuntimeException {
         final Jwt parse = Jwts.parser().setSigningKey(this.secret).parse(token);
         final Long exp = (Long) ((DefaultClaims) parse.getBody()).get("exp");
@@ -58,5 +59,4 @@ public class TokenHandler {
             throw new RuntimeException("Access token has expired");
         }
     }
-
 }

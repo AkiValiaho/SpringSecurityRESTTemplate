@@ -30,6 +30,7 @@ class CorsFilter implements Filter {
         }
     }
 
+
     public void init(FilterConfig filterConfig) {
     }
 

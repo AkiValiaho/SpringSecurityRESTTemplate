@@ -1,4 +1,4 @@
-package com.valiaho.Configuration.Persistence;
+/*package com.valiaho.Configuration.Persistence;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -17,9 +17,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-/**
+*//**
  * Created by akivv on 3.3.2016.
- */
+ *//*
 @Configuration
 @EnableTransactionManagement
 //Enable JPA Repositories with EnableJpaRepositories annotation
@@ -39,7 +39,7 @@ public class PersistenceContext {
     @Autowired
     Environment env;
 
-    /**
+    *//**
      * Sets environment properties to the hikaridatasource
      * from the autowired Spring environment and uses * classpath files. Destroy method is specified to be 'close'.
      * <p/>
@@ -47,7 +47,7 @@ public class PersistenceContext {
      * JDBC Connection Pool: https://github.com/brettwooldridge/HikariCP
      *
      * @return returns a new {@link HikariDataSource} as a Spring based bean
-     */
+     *//*
     @Bean(destroyMethod = "close")
     DataSource dataSource() {
         HikariConfig hikariConfig = new HikariConfig();
@@ -79,4 +79,4 @@ public class PersistenceContext {
         JpaTransactionManager jpaTransactionManager = new JpaTransactionManager(entityManagerFactory().getObject());
         return jpaTransactionManager;
     }
-}
+}*/

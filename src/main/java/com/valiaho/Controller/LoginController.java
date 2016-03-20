@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +24,8 @@ import java.security.InvalidKeyException;
 public class LoginController {
     @Autowired
     LoginService loginService;
+    @Autowired
+    RestTemplate restTemplate;
 
 
     @RequestMapping(method = RequestMethod.POST)
@@ -30,7 +33,8 @@ public class LoginController {
     public LoginStatus login(HttpServletRequest request, HttpServletResponse response, @RequestBody LoginDto loginDto) throws InvalidKeyException {
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
                 loginDto.getUsername(), loginDto.getPassword());
+        final LoginStatus loginStatus = loginService.attemptAuth(usernamePasswordAuthenticationToken, response, request);
         return loginService.attemptAuth(usernamePasswordAuthenticationToken, response, request);
-    }
+   }
 }
 
