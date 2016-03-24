@@ -39,7 +39,6 @@ public class TokenHandler {
     }
 
     public String createTokenForUser(User user) throws NoSuchAlgorithmException, InvalidKeyException {
-
         final Map<String, Object> mapOfPayloads = new HashMap<>();
         mapOfPayloads.put("exp", Integer.valueOf(tokenDefaultLoginTime) + System.currentTimeMillis());
         mapOfPayloads.put("role", user.getAuthorities());

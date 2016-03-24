@@ -5,7 +5,6 @@ import com.valiaho.Service.LoggedInUsersService;
 import com.valiaho.Utils.TokenHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
 import org.springframework.mock.env.MockEnvironment;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,7 +14,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * Created by akivv on 23.2.2016.
  */
 @Configuration
-@Profile("testing")
 public class MyTestContext {
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -38,8 +36,9 @@ public class MyTestContext {
         mockEnvironment.setProperty("tokenDefaultLoginTime", "864000000");
         return mockEnvironment;
     }
+
     @Bean
     LoggedInUsersService loggedInUsersService() {
-        return  new LoggedInUsersService();
+        return new LoggedInUsersService();
     }
 }

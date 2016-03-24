@@ -1,37 +1,42 @@
 package com.valiaho.Tests;
 
-import com.valiaho.Configuration.Web.CustomuserDetailService;
 import com.valiaho.Utils.TokenHandler;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * Created by akivv on 23.2.2016.
+ * Created by akivv on 22.3.2016.
  */
+@ContextConfiguration(classes = {MyTestContext.class})
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = MyTestContext.class)
 public class TokenHandlerTest {
 
     @Autowired
-    TokenHandler tokenHandler;
-    @Autowired
-    CustomuserDetailService customuserDetailService;
-    private String token;
+    private PasswordEncoder passwordEncoder;
+    private TokenHandler tokenHandler;
+    private User user;
 
     @Before
-    public void setUp() throws Exception {
-        final UserDetails details = customuserDetailService.loadUserByUsername("user");
-        token = tokenHandler.createTokenForUser((User) details);
+    public void createCOntext() {
+        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+        grantedAuthorities.add(new SimpleGrantedAuthority("USER"));
+        user = new User("Aki Väliaho", passwordEncoder.encode("asdf"), grantedAuthorities);
+        tokenHandler = new TokenHandler();
     }
 
     @Test
-    public void testVerifyToken() throws Exception {
-        tokenHandler.verifyToken(token);
+    public void testCreateTokenForUser() throws Exception {
+        tokenHandler.verifyToken(tokenHandler.createTokenForUser(user));
     }
 }

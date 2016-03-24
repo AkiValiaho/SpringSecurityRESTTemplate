@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -92,7 +93,6 @@ public class ConnectionManager {
         configuration.bucketPassword = environment.getProperty("db.bucketPassword");
         configuration.jobBucket = environment.getRequiredProperty("db.jobBucket");
         validateConfigurationProperty(configuration.jobBucket, "Couchbase job bucket not set");
-
         AtomicBoolean propertyFound = new AtomicBoolean(false);
         long value = -1;
         value = parseLongProperty(environment, "db.connectTimeout", propertyFound);

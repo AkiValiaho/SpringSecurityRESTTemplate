@@ -6,7 +6,7 @@ import com.valiaho.Utils.AnnotationTool;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 /**
  * Created by akivv on 20.3.2016.
@@ -31,4 +31,6 @@ public class AnnotationToolTest {
             fail("Property is not right");
         }
     }
+
+
 }

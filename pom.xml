@@ -179,12 +179,14 @@
                             <nodeVersion>v5.8.0</nodeVersion>
                             <npmVersion>3.7.1</npmVersion>
                         </configuration>
+                        <phase>deploy</phase>
                     </execution>
                     <execution>
                         <id>npm install</id>
                         <goals>
                             <goal>npm</goal>
                         </goals>
+                        <phase>package</phase>
                         <!-- Optional configuration which provides for running any npm command -->
                         <configuration>
                             <arguments>install</arguments>
@@ -195,6 +197,7 @@
                         <goals>
                             <goal>bower</goal>
                         </goals>
+                        <phase>package</phase>
                         <configuration>
                             <arguments>install</arguments>
                         </configuration>
@@ -207,6 +210,7 @@
                         <configuration>
                             <arguments>run build</arguments>
                         </configuration>
+                        <phase>package</phase>
                     </execution>
                 </executions>
             </plugin>

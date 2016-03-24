@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prebuild": "npm install",
-    "build": "gulp"
+    "build": "browserify -t [ babelify --presets [ react ] ] application.js -o bundle.js && gulp"
   },
   "repository": {
     "type": "git",
@@ -23,9 +23,16 @@
   },
   "homepage": "https://github.com/AkiValiaho/SpringSecurityRESTTemplate#readme",
   "dependencies": {
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.2.0",
     "bower": "^1.7.7",
     "gulp": "^3.9.1",
     "gulp-util": "^3.0.7",
-    "gulp-zip": "^3.2.0"
+    "gulp-zip": "^3.2.0",
+    "jasmine-node": "^1.14.5",
+    "react": "^0.14.7",
+    "react-addons-css-transition-group": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "reactify": "^1.1.1"
   }
 }
