@@ -19,3 +19,5 @@ application.properties.
 
 Maven Clean Install triggers building for the frontend as well as Spring Boot.
 There is a Gulp process that moves frontend files to the target-folder under their own document root.
+
+Project has a static angular.js frontend with some stylish bootstrap styling :)
