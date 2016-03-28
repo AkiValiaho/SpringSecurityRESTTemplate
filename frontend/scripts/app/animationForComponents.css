@@ -1,0 +1,36 @@
+.animate-panel {
+    width: 100%;
+    height: inherit;
+    overflow: hidden;
+    -webkit-transition: all 2s ease-in;
+    transition: all 2s ease-in;
+}
+
+.animate-panel.ng-enter {
+    opacity: 0;
+    height: 0;
+}
+
+.animate-panel.ng-enter-active {
+    opacity: 1;
+    height: 150px;
+}
+
+.animate-panel.ng-leave-active {
+    opacity: 0;
+    height: 0;
+}
+
+.breadtext {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+.jumbotron {
+    border-radius: 6px;
+}
+
+.img-responsive {
+    border-radius: 7px;
+}
