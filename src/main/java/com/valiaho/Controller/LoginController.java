@@ -27,7 +27,6 @@ public class LoginController {
     @Autowired
     RestTemplate restTemplate;
 
-
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public LoginStatus login(HttpServletRequest request, HttpServletResponse response, @RequestBody LoginDto loginDto) throws InvalidKeyException {
@@ -35,6 +34,6 @@ public class LoginController {
                 loginDto.getUsername(), loginDto.getPassword());
         final LoginStatus loginStatus = loginService.attemptAuth(usernamePasswordAuthenticationToken, response, request);
         return loginService.attemptAuth(usernamePasswordAuthenticationToken, response, request);
-   }
+    }
 }
 

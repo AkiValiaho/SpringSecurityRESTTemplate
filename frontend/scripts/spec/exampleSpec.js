@@ -8,10 +8,14 @@ describe('jasmine test suite', function () {
       done();
     });
   }, 250);
-  it("api should responed correctly with json deny", function (done) {
-    request("http://localhost:8080/login", function (error, response, body) {
+  it("this method should return a proper value if invoked", function (done) {
+    request("http://localhost:3000/login", function (error, response, body) {
       console.log(error);
-    });
-  })
+    })
+  }, 379);
+  it("should return failed login attempt", function (done) {
+    request("http://localhost:8080/login", function (error, response, body) {
+    })
+  }, 250);
 });
 

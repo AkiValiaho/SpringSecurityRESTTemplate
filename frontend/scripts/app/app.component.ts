@@ -1,8 +1,9 @@
 import {Component} from "angular2/core";
 import {TechnologyStackComponent} from "./techonologystack.component";
+import {MapComponent} from "./map.component";
 @Component({
     selector: 'my-app',
-    directives: [TechnologyStackComponent],
+    directives: [TechnologyStackComponent, MapComponent],
     template: `
 <div class="row">
 
@@ -22,6 +23,7 @@ import {TechnologyStackComponent} from "./techonologystack.component";
 </div>
 </div>
 <technologies></technologies>
+<mapComponent></mapComponent>
 <!--Ending-->
 </div>
     `,

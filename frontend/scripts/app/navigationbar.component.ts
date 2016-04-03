@@ -1,6 +1,7 @@
 import {Component} from "angular2/core";
 import {AppComponent} from "./app.component";
 import {NgClass} from "angular2/common";
+
 @Component({
     directives: [AppComponent, NgClass],
     selector: 'nav-bar'
@@ -12,22 +13,42 @@ import {NgClass} from "angular2/common";
         </div>
         <ul class="nav navbar-nav">
             <li [ngClass]="{active: isActiveHomeButton}"><a (click)="onClickHomeButton()" href="#">Home</a></li>
-            <li [ngClass]="{active: isActiveOpenSourceButton}"><a href="j">My Open Source work</a></li>
-            <li><a href="#">My contact info</a></li>
+            <li [ngClass]="{active: isActiveOpenSourceButton}"><a (click)="onClickOpenSourceButton()" href="#">My Open Source work</a></li>
+            <li [ngClass]="{active: isActiveContactButton}"><a (click)="onClickContactInfoButton()" href="#">My contact info</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login to my time scheduling application</a></li>
         </ul>
     </div>
 </nav>
-<my-app>Loading application</my-app>
+<!--Display the application if home button is active-->
+<my-app *ngIf="isActiveHomeButton">Loading application</my-app>
 `
+
 })
+
+/*Navigation bar component and */
 export class NavigationBarComponent {
-    isActiveHomeButton = false;
+    isActiveHomeButton = true;
     isActiveOpenSourceButton = false;
+    isActiveContactButton = false;
 
     onClickHomeButton() {
+        this.isActiveOpenSourceButton = false;
+        this.isActiveContactButton = false;
         this.isActiveHomeButton = true;
     }
+
+    onClickOpenSourceButton() {
+        this.isActiveHomeButton = false;
+        this.isActiveContactButton = false;
+        this.isActiveOpenSourceButton = true;
+    }
+
+    onClickContactInfoButton() {
+        this.isActiveHomeButton = false;
+        this.isActiveOpenSourceButton = false;
+        this.isActiveContactButton = true;
+    }
+
 }
