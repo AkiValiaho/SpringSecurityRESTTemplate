@@ -1,9 +1,10 @@
 import {Component} from "angular2/core";
 import {AppComponent} from "./app.component";
 import {NgClass} from "angular2/common";
+import {OpenSourceComponent} from "./opensource.component";
 
 @Component({
-    directives: [AppComponent, NgClass],
+    directives: [AppComponent, NgClass, OpenSourceComponent],
     selector: 'nav-bar'
     , template: `
     <nav class="navbar navbar-inverse">
@@ -23,10 +24,9 @@ import {NgClass} from "angular2/common";
 </nav>
 <!--Display the application if home button is active-->
 <my-app *ngIf="isActiveHomeButton">Loading application</my-app>
+<openSourceApp [item1]="Herld" [item2]="Derp" *ngIf="isActiveOpenSourceButton" ></openSourceApp>
 `
-
 })
-
 /*Navigation bar component and */
 export class NavigationBarComponent {
     isActiveHomeButton = true;
@@ -50,5 +50,4 @@ export class NavigationBarComponent {
         this.isActiveOpenSourceButton = false;
         this.isActiveContactButton = true;
     }
-
 }

@@ -9,12 +9,14 @@ import {Component} from "angular2/core";
         }
 </style>
 <div class="col-sm-6 col-md-6"><div class="jumbotron">
-<div class="container">   <google-map latitude={{lat}} longitude={{lng}} disable-default-ui></google-map></div>
-</div></div>
-     
+<div class="container">
+    <google-map latitude={{lat}} longitude={{lng}} disable-default-ui></google-map>
+</div>
+</div>
+</div>
     `
 })
 export class MapComponent {
-    lat:number = 51.678418;
-    lng:number = 7.809008;
+    lat:number = 61.497978;
+    lng:number = 23.764931;
 }
