@@ -8,7 +8,7 @@ providing persistence in stateless context of REST.
 There is an existing mapping for a typical Java EE-pattern. Controllers, services and domain objects
 are organised in separate packages.
 
-Database object relational mapping is handled by Hibernate.
+This version has a Couchbase database configured.
 
 It has a configurable CORS-filter defined and a simple CustomUserDetails-implementation
 that can be used for example implementing a custom cache functionality and/or a database backed
