@@ -24,7 +24,7 @@ import {OpenSourceComponent} from "./opensource.component";
 </nav>
 <!--Display the application if home button is active-->
 <my-app *ngIf="isActiveHomeButton">Loading application</my-app>
-<openSourceApp [item1]="Herld" [item2]="Derp" *ngIf="isActiveOpenSourceButton" ></openSourceApp>
+<openSourceApp item1="Herld" item2="Derp" *ngIf="isActiveOpenSourceButton"></openSourceApp>
 `
 })
 /*Navigation bar component and */
