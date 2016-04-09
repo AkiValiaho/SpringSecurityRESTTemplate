@@ -1,6 +1,6 @@
 package com.valiaho.Service;
 
-import com.valiaho.DAO.ProductServiceDAO;
+import com.valiaho.DAO.ProductRepository;
 import com.valiaho.Domain.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,8 @@ import java.util.Optional;
 @Service
 public class ProductService {
     @Autowired
-    ProductServiceDAO productServiceDAO;
+    ProductRepository productRepository;
+
     public void save(Product product) {
         final Optional<Product> one = findOne(product.getName());
         if (one.isPresent()) {
