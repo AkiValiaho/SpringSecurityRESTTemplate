@@ -1,5 +1,6 @@
 package com.valiaho.Tests;
 
+import com.valiaho.Tests.ContextConfiguration.GenericTestContext;
 import com.valiaho.Utils.MultiPartFileUtils;
 import org.apache.commons.io.FileUtils;
 import org.junit.Before;
@@ -21,7 +22,7 @@ import static org.junit.Assert.fail;
 /**
  * Created by akivv on 9.4.2016.
  */
-@ContextConfiguration(classes = {MyTestContext.class})
+@ContextConfiguration(classes = {GenericTestContext.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class MultiPartFileUtilsTest {
 
@@ -29,7 +30,6 @@ public class MultiPartFileUtilsTest {
     @Autowired
     private MultiPartFileUtils multiPartFileUtils;
     private MultipartFile multiPartFile;
-
     @Before
     public void before() throws IOException {
         final File file = FileUtils.toFile(ResourceUtils.getURL("test.png"));
@@ -39,24 +39,12 @@ public class MultiPartFileUtilsTest {
 
     @Test
     public void saveMultiPartFileToPersistence() throws Exception {
-        final String s = multiPartFileUtils.saveMultiPartFileToPersistence(multiPartFile);
-        //TODO Check if filename is in proper format
-        if (s.contains(":")) {
+        final String[] s = multiPartFileUtils.saveMultiPartFileToPersistence(multiPartFile, null);
+        if (s[1].contains(":")) {
             fail("Some nasty characters in filename");
         }
-        //TODO Check if filename contains proper ending
-        if (!s.contains(".png")) {
+        if (!s[1].contains(".png")) {
             fail("Proper MIME-type is not present in file ending");
         }
-    }
-
-    @Test
-    public void saveMultiPartFileToPersistence1() throws Exception {
-
-    }
-
-    @Test
-    public void getImageFolderLocationFromConfig() throws Exception {
-
     }
 }

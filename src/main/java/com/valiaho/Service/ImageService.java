@@ -1,19 +1,20 @@
 package com.valiaho.Service;
 
+import com.valiaho.Domain.Comment;
 import com.valiaho.Domain.Image;
-import org.springframework.stereotype.Service;
+import org.jetbrains.annotations.Nullable;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
  * Created by akivv on 7.4.2016.
  */
-@Service
 public interface ImageService {
-    byte[] loadRandomImageAsByteArray();
+    Optional<Image> persistImage(MultipartFile file, String imageName, @Nullable List<Comment> comments);
 
-    Optional<Image> uploadImage(MultipartFile file);
+    Optional<Image> getImageById(String documentId);
 
-    Optional<Image> uploadImage(MultipartFile file, String imageName);
+
 }

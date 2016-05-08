@@ -32,8 +32,9 @@ public class AbstractImageObjectBuilder implements ImageBuilder {
 
     @Override
     public Image build() throws IllegalArgumentException {
-        //TODO create an image builder that created random location
         //for the image if imageLocationInSystem is invalid or null
-        return new Image(imageName, imageLocationInSystem);
+        final Image image = new Image(imageName, imageLocationInSystem);
+        return image;
     }
+
 }

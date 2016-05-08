@@ -8,12 +8,13 @@ public class JsonObjectBuilder {
     private Object objectToBuildJsonFrom;
 
 
-    JsonObject buildJsonObject() {
+    public JsonObject buildJsonObject() {
         Gson gson = new Gson();
         return JsonObject.fromJson(gson.toJson((objectToBuildJsonFrom)));
     }
 
-    public void setObject(Object objectToBuildDocumentFrom) {
+    public JsonObjectBuilder setObject(Object objectToBuildDocumentFrom) {
         this.objectToBuildJsonFrom = objectToBuildDocumentFrom;
+        return this;
     }
 }

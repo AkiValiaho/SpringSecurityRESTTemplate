@@ -1,5 +1,6 @@
 package com.valiaho.Tests;
 
+import com.valiaho.Tests.ContextConfiguration.GenericTestContext;
 import com.valiaho.Utils.TokenHandler;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,12 +19,13 @@ import java.util.List;
 /**
  * Created by akivv on 22.3.2016.
  */
-@ContextConfiguration(classes = {MyTestContext.class})
+@ContextConfiguration(classes = {GenericTestContext.class})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class TokenHandlerTest {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
     private TokenHandler tokenHandler;
     private User user;
 
@@ -32,7 +34,6 @@ public class TokenHandlerTest {
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         grantedAuthorities.add(new SimpleGrantedAuthority("USER"));
         user = new User("Aki Väliaho", passwordEncoder.encode("asdf"), grantedAuthorities);
-        tokenHandler = new TokenHandler();
     }
 
     @Test

@@ -16,28 +16,28 @@ import java.util.Map;
 @RequestMapping("/error")
 public class SimpleErrorController implements ErrorController {
 
-  private final ErrorAttributes errorAttributes;
+    private final ErrorAttributes errorAttributes;
 
-  @Autowired
-  public SimpleErrorController(ErrorAttributes errorAttributes) {
-    Assert.notNull(errorAttributes, "ErrorAttributes must not be null");
-    this.errorAttributes = errorAttributes;
-  }
+    @Autowired
+    public SimpleErrorController(ErrorAttributes errorAttributes) {
+        Assert.notNull(errorAttributes, "ErrorAttributes must not be null");
+        this.errorAttributes = errorAttributes;
+    }
 
-  @Override
-  public String getErrorPath() {
-    return "/error";
-  }
+    @Override
+    public String getErrorPath() {
+        return "/error";
+    }
 
-  @RequestMapping
-  public Map<String, Object> error(HttpServletRequest aRequest){
-    Map<String, Object> body = getErrorAttributes(aRequest,false);
-    return body;
-  }
+    @RequestMapping
+    public Map<String, Object> error(HttpServletRequest aRequest) {
+        Map<String, Object> body = getErrorAttributes(aRequest, false);
+        return body;
+    }
 
 
-  private Map<String, Object> getErrorAttributes(HttpServletRequest aRequest, boolean includeStackTrace) {
-    RequestAttributes requestAttributes = new ServletRequestAttributes(aRequest);
-    return errorAttributes.getErrorAttributes(requestAttributes, includeStackTrace);
-  }
+    private Map<String, Object> getErrorAttributes(HttpServletRequest aRequest, boolean includeStackTrace) {
+        RequestAttributes requestAttributes = new ServletRequestAttributes(aRequest);
+        return errorAttributes.getErrorAttributes(requestAttributes, includeStackTrace);
+    }
 }
